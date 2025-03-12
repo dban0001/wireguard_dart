@@ -11,7 +11,7 @@ import com.wireguard.android.backend.BackendException
 import com.wireguard.android.backend.GoBackend
 import com.wireguard.android.backend.Tunnel
 import com.wireguard.crypto.KeyPair
-import io.flutter.embedding.android.FlutterActivity
+import io.flutter.embedding.android.FlutterFragmentActivity
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
@@ -76,7 +76,7 @@ class WireguardDartPlugin : FlutterPlugin, MethodCallHandler, ActivityAware,
     }
 
     override fun onAttachedToActivity(binding: ActivityPluginBinding) {
-        this.activity = binding.activity as FlutterActivity
+        this.activity = binding.activity as FlutterFragmentActivity
         binding.addActivityResultListener(this)
     }
 
@@ -85,7 +85,7 @@ class WireguardDartPlugin : FlutterPlugin, MethodCallHandler, ActivityAware,
     }
 
     override fun onReattachedToActivityForConfigChanges(activityPluginBinding: ActivityPluginBinding) {
-        this.activity = activityPluginBinding.activity as FlutterActivity
+        this.activity = activityPluginBinding.activity as FlutterFragmentActivity
     }
 
     override fun onDetachedFromActivity() {
